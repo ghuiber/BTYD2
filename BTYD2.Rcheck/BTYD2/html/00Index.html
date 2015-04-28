@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: Implementing BTYD Models With Log Exp Sum Patch</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> Implementing BTYD Models With Log Exp Sum Patch
+<img class="toplogo" src="../../../doc/html/logo.jpg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;BTYD2&rsquo; version 2.4</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../doc/index.html">User guides, package vignettes and other documentation.</a></li>
+<li><a href="../demo">Code demos</a>.  Use <a href="../../utils/help/demo">demo()</a> to run them.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="BTYD2-package.html">BTYD2-package</a></td>
+<td>Implementing BTYD Models With Log Exp Sum Patch</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.ConditionalExpectedTransactions.html">bgbb.ConditionalExpectedTransactions</a></td>
+<td>BG/BB Conditional Expected Transactions</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.DERT.html">bgbb.DERT</a></td>
+<td>BG/BB Discounted Expected Residual Transactions</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.EstimateParameters.html">bgbb.EstimateParameters</a></td>
+<td>BG/BB Parameter Estimation</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.Expectation.html">bgbb.Expectation</a></td>
+<td>BG/BB Expectation</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.HeatmapHoldoutExpectedTrans.html">bgbb.HeatmapHoldoutExpectedTrans</a></td>
+<td>BG/BB Heatmap of Holdout Period Expected Transactions</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.LL.html">bgbb.LL</a></td>
+<td>BG/BB Log-Likelihood</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PAlive.html">bgbb.PAlive</a></td>
+<td>BG/BB P(Alive)</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PlotDropoutRateHeterogeneity.html">bgbb.PlotDropoutRateHeterogeneity</a></td>
+<td>BG/BB Plot Dropout Rate Heterogeneity</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PlotFrequencyInCalibration.html">bgbb.PlotFrequencyInCalibration</a></td>
+<td>BG/BB Plot Frequency in Calibration Period</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PlotFrequencyInHoldout.html">bgbb.PlotFrequencyInHoldout</a></td>
+<td>BG/BB Plot Frequency in Holdout</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PlotFreqVsConditionalExpectedFrequency.html">bgbb.PlotFreqVsConditionalExpectedFrequency</a></td>
+<td>BG/BB Plot Frequency vs Conditional Expected Frequency</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PlotRecVsConditionalExpectedFrequency.html">bgbb.PlotRecVsConditionalExpectedFrequency</a></td>
+<td>BG/BB Plot Recency vs Conditional Expected Frequency</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PlotTrackingCum.html">bgbb.PlotTrackingCum</a></td>
+<td>BG/BB Tracking Cumulative Transactions Plot</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PlotTrackingInc.html">bgbb.PlotTrackingInc</a></td>
+<td>BG/BB Tracking Incremental Transactions Plot</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PlotTransactionRateHeterogeneity.html">bgbb.PlotTransactionRateHeterogeneity</a></td>
+<td>BG/BB Plot Transaction Rate Heterogeneity</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.pmf.html">bgbb.pmf</a></td>
+<td>BG/BB Probability Mass Function</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.pmf.General.html">bgbb.pmf.General</a></td>
+<td>BG/BB General Probability Mass Function</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PosteriorMeanDropoutRate.html">bgbb.PosteriorMeanDropoutRate</a></td>
+<td>BG/BB Posterior Mean Dropout Rate</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PosteriorMeanLmProductMoment.html">bgbb.PosteriorMeanLmProductMoment</a></td>
+<td>BG/BB Posterior Mean (l,m)th Product Moment</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PosteriorMeanTransactionRate.html">bgbb.PosteriorMeanTransactionRate</a></td>
+<td>BG/BB Posterior Mean Transaction Rate</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.DERT.html">bgbb.rf.matrix.DERT</a></td>
+<td>BG/BB Discounted Expected Residual Transactions</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.LL.html">bgbb.rf.matrix.LL</a></td>
+<td>BG/BB Log-Likelihood</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PosteriorMeanDropoutRate.html">bgbb.rf.matrix.PosteriorMeanDropoutRate</a></td>
+<td>BG/BB Posterior Mean Dropout Rate</td></tr>
+<tr><td style="width: 25%;"><a href="bgbb.PosteriorMeanTransactionRate.html">bgbb.rf.matrix.PosteriorMeanTransactionRate</a></td>
+<td>BG/BB Posterior Mean Transaction Rate</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.LL.html">bgnbd.cbs.LL</a></td>
+<td>BG/NBD Log-Likelihood</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.compress.cbs.html">bgnbd.compress.cbs</a></td>
+<td>Compress Customer-by-Sufficient-Statistic Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.ConditionalExpectedTransactions.html">bgnbd.ConditionalExpectedTransactions</a></td>
+<td>BG/NBD Conditional Expected Transactions</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.EstimateParameters.html">bgnbd.EstimateParameters</a></td>
+<td>BG/NBD Parameter Estimation</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.Expectation.html">bgnbd.Expectation</a></td>
+<td>BG/NBD Expectation</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.ExpectedCumulativeTransactions.html">bgnbd.ExpectedCumulativeTransactions</a></td>
+<td>BG/NBD Expected Cumulative Transactions</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.LL.html">bgnbd.LL</a></td>
+<td>BG/NBD Log-Likelihood</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.PAlive.html">bgnbd.PAlive</a></td>
+<td>BG/NBD P(Alive)</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.PlotDropoutRateHeterogeneity.html">bgnbd.PlotDropoutRateHeterogeneity</a></td>
+<td>BG/NBD Plot Dropout Probability Heterogeneity</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.PlotFrequencyInCalibration.html">bgnbd.PlotFrequencyInCalibration</a></td>
+<td>BG/NBD Plot Frequency in Calibration Period</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.PlotFreqVsConditionalExpectedFrequency.html">bgnbd.PlotFreqVsConditionalExpectedFrequency</a></td>
+<td>BG/NBD Plot Frequency vs. Conditional Expected Frequency</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.PlotRecVsConditionalExpectedFrequency.html">bgnbd.PlotRecVsConditionalExpectedFrequency</a></td>
+<td>BG/NBD Plot Actual vs. Conditional Expected Frequency by Recency</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.PlotTrackingCum.html">bgnbd.PlotTrackingCum</a></td>
+<td>BG/NBD Tracking Cumulative Transactions Plot</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.PlotTrackingInc.html">bgnbd.PlotTrackingInc</a></td>
+<td>BG/NBD Tracking Incremental Transactions Comparison</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.PlotTransactionRateHeterogeneity.html">bgnbd.PlotTransactionRateHeterogeneity</a></td>
+<td>BG/NBD Plot Transaction Rate Heterogeneity</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.pmf.html">bgnbd.pmf</a></td>
+<td>BG/NBD Probability Mass Function</td></tr>
+<tr><td style="width: 25%;"><a href="bgnbd.pmf.General.html">bgnbd.pmf.General</a></td>
+<td>Generalized BG/NBD Probability Mass Function</td></tr>
+<tr><td style="width: 25%;"><a href="BTYD2-package.html">BTYD2</a></td>
+<td>Implementing BTYD Models With Log Exp Sum Patch</td></tr>
+<tr><td style="width: 25%;"><a href="cdnowElog.html">cdnowElog</a></td>
+<td>CDNOW event log data</td></tr>
+<tr><td style="width: 25%;"><a href="cdnowSummary.html">cdnowSummary</a></td>
+<td>CDNOW repeat transaction data summary</td></tr>
+<tr><td style="width: 25%;"><a href="dc.BuildCBSFromCBTAndDates.html">dc.BuildCBSFromCBTAndDates</a></td>
+<td>Build CBS matrix from CBT matrix</td></tr>
+<tr><td style="width: 25%;"><a href="dc.BuildCBTFromElog.html">dc.BuildCBTFromElog</a></td>
+<td>Build Customer-by-Time Matrix from Event Log</td></tr>
+<tr><td style="width: 25%;"><a href="dc.CreateFreqCBT.html">dc.CreateFreqCBT</a></td>
+<td>Create Frequency Customer-by-Time Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="dc.CreateReachCBT.html">dc.CreateReachCBT</a></td>
+<td>Create Reach Customer-by-Time Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="dc.CreateSpendCBT.html">dc.CreateSpendCBT</a></td>
+<td>Create Spend Customer-by-Time Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="dc.CumulativeToIncremental.html">dc.CumulativeToIncremental</a></td>
+<td>Cumulative to Incremental</td></tr>
+<tr><td style="width: 25%;"><a href="dc.DissipateElog.html">dc.DissipateElog</a></td>
+<td>Dissipate Event Log</td></tr>
+<tr><td style="width: 25%;"><a href="dc.ElogToCbsCbt.html">dc.ElogToCbsCbt</a></td>
+<td>Convernt Event Log to CBS and CBT Matrices</td></tr>
+<tr><td style="width: 25%;"><a href="dc.FilterCustByBirth.html">dc.FilterCustByBirth</a></td>
+<td>Filter Customer by Birth</td></tr>
+<tr><td style="width: 25%;"><a href="dc.GetFirstPurchasePeriodsFromCBT.html">dc.GetFirstPurchasePeriodsFromCBT</a></td>
+<td>Get First Purchase Periods from Customer-by-Time Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="dc.GetLastPurchasePeriodsFromCBT.html">dc.GetLastPurchasePeriodsFromCBT</a></td>
+<td>Get Last Purchase Periods from Customer-by-Time Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="dc.MakeRFmatrixCal.html">dc.MakeRFmatrixCal</a></td>
+<td>Make Calibration Period Recency-Frequency Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="dc.MakeRFmatrixHoldout.html">dc.MakeRFmatrixHoldout</a></td>
+<td>Make Holdout Period Recency-Frequency Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="dc.MakeRFmatrixSkeleton.html">dc.MakeRFmatrixSkeleton</a></td>
+<td>Make Recency-Frequency Matrix Skeleton</td></tr>
+<tr><td style="width: 25%;"><a href="dc.MergeCustomers.html">dc.MergeCustomers</a></td>
+<td>Merge Customers</td></tr>
+<tr><td style="width: 25%;"><a href="dc.MergeTransactionsOnSameDate.html">dc.MergeTransactionsOnSameDate</a></td>
+<td>Merge Transactions on Same Day</td></tr>
+<tr><td style="width: 25%;"><a href="dc.PlotLogLikelihoodContour.html">dc.PlotLogLikelihoodContour</a></td>
+<td>Plot Log-Likelihood Contour</td></tr>
+<tr><td style="width: 25%;"><a href="dc.PlotLogLikelihoodContours.html">dc.PlotLogLikelihoodContours</a></td>
+<td>Plot Log-Likelihood Contour</td></tr>
+<tr><td style="width: 25%;"><a href="dc.ReadLines.html">dc.ReadLines</a></td>
+<td>Read Lines</td></tr>
+<tr><td style="width: 25%;"><a href="dc.RemoveTimeBetween.html">dc.RemoveTimeBetween</a></td>
+<td>Remove Time Between</td></tr>
+<tr><td style="width: 25%;"><a href="dc.SplitUpElogForRepeatTrans.html">dc.SplitUpElogForRepeatTrans</a></td>
+<td>Split Up Event Log for Repeat Transactions</td></tr>
+<tr><td style="width: 25%;"><a href="discreteSimElog.html">discreteSimElog</a></td>
+<td>Discrete simulated annual event log data</td></tr>
+<tr><td style="width: 25%;"><a href="donationsSummary.html">donationsSummary</a></td>
+<td>Discrete donation data summary</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.LL.html">pnbd.cbs.LL</a></td>
+<td>Pareto/NBD Log-Likelihood</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.compress.cbs.html">pnbd.compress.cbs</a></td>
+<td>Compress Customer-by-Sufficient-Statistic Matrix</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.ConditionalExpectedTransactions.html">pnbd.ConditionalExpectedTransactions</a></td>
+<td>Pareto/NBD Conditional Expected Transactions</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.DERT.html">pnbd.DERT</a></td>
+<td>Pareto/NBD Discounted Expected Residual Transactions</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.EstimateParameters.html">pnbd.EstimateParameters</a></td>
+<td>Pareto/NBD Parameter Estimation</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.Expectation.html">pnbd.Expectation</a></td>
+<td>Pareto/NBD Expectation</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.ExpectedCumulativeTransactions.html">pnbd.ExpectedCumulativeTransactions</a></td>
+<td>Pareto/NBD Expected Cumulative Transactions</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.LL.html">pnbd.LL</a></td>
+<td>Pareto/NBD Log-Likelihood</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.PAlive.html">pnbd.PAlive</a></td>
+<td>Pareto/NBD P(Alive)</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.Plot.DERT.html">pnbd.Plot.DERT</a></td>
+<td>Pareto/NBD Plot Discounted Expected Residual Transactions</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.PlotDropoutRateHeterogeneity.html">pnbd.PlotDropoutRateHeterogeneity</a></td>
+<td>Pareto/NBD Plot Dropout Rate Heterogeneity</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.PlotFrequencyInCalibration.html">pnbd.PlotFrequencyInCalibration</a></td>
+<td>Pareto/NBD Plot Frequency in Calibration Period</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.PlotFreqVsConditionalExpectedFrequency.html">pnbd.PlotFreqVsConditionalExpectedFrequency</a></td>
+<td>Pareto/NBD Plot Frequency vs. Conditional Expected Frequency</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.PlotRecVsConditionalExpectedFrequency.html">pnbd.PlotRecVsConditionalExpectedFrequency</a></td>
+<td>Pareto/NBD Plot Actual vs. Conditional Expected Frequency by Recency</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.PlotTrackingCum.html">pnbd.PlotTrackingCum</a></td>
+<td>Pareto/NBD Tracking Cumulative Transactions Plot</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.PlotTrackingInc.html">pnbd.PlotTrackingInc</a></td>
+<td>Pareto/NBD Tracking Incremental Transactions Comparison</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.PlotTransactionRateHeterogeneity.html">pnbd.PlotTransactionRateHeterogeneity</a></td>
+<td>Pareto/NBD Plot Transaction Rate Heterogeneity</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.pmf.html">pnbd.pmf</a></td>
+<td>Pareto/NBD Probability Mass Function</td></tr>
+<tr><td style="width: 25%;"><a href="pnbd.pmf.General.html">pnbd.pmf.General</a></td>
+<td>Generalized Pareto/NBD Probability Mass Function</td></tr>
+<tr><td style="width: 25%;"><a href="spend.EstimateParameters.html">spend.EstimateParameters</a></td>
+<td>Spend Parameter Estimation</td></tr>
+<tr><td style="width: 25%;"><a href="spend.expected.value.html">spend.expected.value</a></td>
+<td>Conditional expected transaction value</td></tr>
+<tr><td style="width: 25%;"><a href="spend.LL.html">spend.LL</a></td>
+<td>Spend Log-Likelihood</td></tr>
+<tr><td style="width: 25%;"><a href="spend.marginal.likelihood.html">spend.marginal.likelihood</a></td>
+<td>Gamma-gamma marginal likelihood</td></tr>
+<tr><td style="width: 25%;"><a href="spend.plot.average.transaction.value.html">spend.plot.average.transaction.value</a></td>
+<td>Plot Actual vs. Expected Average Transaction Value</td></tr>
+</table>
+</body></html>

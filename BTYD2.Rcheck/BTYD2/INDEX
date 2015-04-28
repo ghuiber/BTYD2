@@ -1,0 +1,145 @@
+BTYD2-package           Implementing BTYD Models With Log Exp Sum Patch
+bgbb.ConditionalExpectedTransactions
+                        BG/BB Conditional Expected Transactions
+bgbb.DERT               BG/BB Discounted Expected Residual Transactions
+bgbb.EstimateParameters
+                        BG/BB Parameter Estimation
+bgbb.Expectation        BG/BB Expectation
+bgbb.HeatmapHoldoutExpectedTrans
+                        BG/BB Heatmap of Holdout Period Expected
+                        Transactions
+bgbb.LL                 BG/BB Log-Likelihood
+bgbb.PAlive             BG/BB P(Alive)
+bgbb.PlotDropoutRateHeterogeneity
+                        BG/BB Plot Dropout Rate Heterogeneity
+bgbb.PlotFreqVsConditionalExpectedFrequency
+                        BG/BB Plot Frequency vs Conditional Expected
+                        Frequency
+bgbb.PlotFrequencyInCalibration
+                        BG/BB Plot Frequency in Calibration Period
+bgbb.PlotFrequencyInHoldout
+                        BG/BB Plot Frequency in Holdout
+bgbb.PlotRecVsConditionalExpectedFrequency
+                        BG/BB Plot Recency vs Conditional Expected
+                        Frequency
+bgbb.PlotTrackingCum    BG/BB Tracking Cumulative Transactions Plot
+bgbb.PlotTrackingInc    BG/BB Tracking Incremental Transactions Plot
+bgbb.PlotTransactionRateHeterogeneity
+                        BG/BB Plot Transaction Rate Heterogeneity
+bgbb.PosteriorMeanDropoutRate
+                        BG/BB Posterior Mean Dropout Rate
+bgbb.PosteriorMeanLmProductMoment
+                        BG/BB Posterior Mean (l,m)th Product Moment
+bgbb.PosteriorMeanTransactionRate
+                        BG/BB Posterior Mean Transaction Rate
+bgbb.pmf                BG/BB Probability Mass Function
+bgbb.pmf.General        BG/BB General Probability Mass Function
+bgnbd.ConditionalExpectedTransactions
+                        BG/NBD Conditional Expected Transactions
+bgnbd.EstimateParameters
+                        BG/NBD Parameter Estimation
+bgnbd.Expectation       BG/NBD Expectation
+bgnbd.ExpectedCumulativeTransactions
+                        BG/NBD Expected Cumulative Transactions
+bgnbd.LL                BG/NBD Log-Likelihood
+bgnbd.PAlive            BG/NBD P(Alive)
+bgnbd.PlotDropoutRateHeterogeneity
+                        BG/NBD Plot Dropout Probability Heterogeneity
+bgnbd.PlotFreqVsConditionalExpectedFrequency
+                        BG/NBD Plot Frequency vs. Conditional Expected
+                        Frequency
+bgnbd.PlotFrequencyInCalibration
+                        BG/NBD Plot Frequency in Calibration Period
+bgnbd.PlotRecVsConditionalExpectedFrequency
+                        BG/NBD Plot Actual vs. Conditional Expected
+                        Frequency by Recency
+bgnbd.PlotTrackingCum   BG/NBD Tracking Cumulative Transactions Plot
+bgnbd.PlotTrackingInc   BG/NBD Tracking Incremental Transactions
+                        Comparison
+bgnbd.PlotTransactionRateHeterogeneity
+                        BG/NBD Plot Transaction Rate Heterogeneity
+bgnbd.compress.cbs      Compress Customer-by-Sufficient-Statistic
+                        Matrix
+bgnbd.pmf               BG/NBD Probability Mass Function
+bgnbd.pmf.General       Generalized BG/NBD Probability Mass Function
+cdnowElog               CDNOW event log data
+cdnowSummary            CDNOW repeat transaction data summary
+dc.BuildCBSFromCBTAndDates
+                        Build CBS matrix from CBT matrix
+dc.BuildCBTFromElog     Build Customer-by-Time Matrix from Event Log
+dc.CreateFreqCBT        Create Frequency Customer-by-Time Matrix
+dc.CreateReachCBT       Create Reach Customer-by-Time Matrix
+dc.CreateSpendCBT       Create Spend Customer-by-Time Matrix
+dc.CumulativeToIncremental
+                        Cumulative to Incremental
+dc.DissipateElog        Dissipate Event Log
+dc.ElogToCbsCbt         Convernt Event Log to CBS and CBT Matrices
+dc.FilterCustByBirth    Filter Customer by Birth
+dc.GetFirstPurchasePeriodsFromCBT
+                        Get First Purchase Periods from
+                        Customer-by-Time Matrix
+dc.GetLastPurchasePeriodsFromCBT
+                        Get Last Purchase Periods from Customer-by-Time
+                        Matrix
+dc.MakeRFmatrixCal      Make Calibration Period Recency-Frequency
+                        Matrix
+dc.MakeRFmatrixHoldout
+                        Make Holdout Period Recency-Frequency Matrix
+dc.MakeRFmatrixSkeleton
+                        Make Recency-Frequency Matrix Skeleton
+dc.MergeCustomers       Merge Customers
+dc.MergeTransactionsOnSameDate
+                        Merge Transactions on Same Day
+dc.PlotLogLikelihoodContour
+                        Plot Log-Likelihood Contour
+dc.PlotLogLikelihoodContours
+                        Plot Log-Likelihood Contour
+dc.ReadLines            Read Lines
+dc.RemoveTimeBetween    Remove Time Between
+dc.SplitUpElogForRepeatTrans
+                        Split Up Event Log for Repeat Transactions
+discreteSimElog         Discrete simulated annual event log data
+donationsSummary        Discrete donation data summary
+pnbd.ConditionalExpectedTransactions
+                        Pareto/NBD Conditional Expected Transactions
+pnbd.DERT               Pareto/NBD Discounted Expected Residual
+                        Transactions
+pnbd.EstimateParameters
+                        Pareto/NBD Parameter Estimation
+pnbd.Expectation        Pareto/NBD Expectation
+pnbd.ExpectedCumulativeTransactions
+                        Pareto/NBD Expected Cumulative Transactions
+pnbd.LL                 Pareto/NBD Log-Likelihood
+pnbd.PAlive             Pareto/NBD P(Alive)
+pnbd.Plot.DERT          Pareto/NBD Plot Discounted Expected Residual
+                        Transactions
+pnbd.PlotDropoutRateHeterogeneity
+                        Pareto/NBD Plot Dropout Rate Heterogeneity
+pnbd.PlotFreqVsConditionalExpectedFrequency
+                        Pareto/NBD Plot Frequency vs. Conditional
+                        Expected Frequency
+pnbd.PlotFrequencyInCalibration
+                        Pareto/NBD Plot Frequency in Calibration Period
+pnbd.PlotRecVsConditionalExpectedFrequency
+                        Pareto/NBD Plot Actual vs. Conditional Expected
+                        Frequency by Recency
+pnbd.PlotTrackingCum    Pareto/NBD Tracking Cumulative Transactions
+                        Plot
+pnbd.PlotTrackingInc    Pareto/NBD Tracking Incremental Transactions
+                        Comparison
+pnbd.PlotTransactionRateHeterogeneity
+                        Pareto/NBD Plot Transaction Rate Heterogeneity
+pnbd.compress.cbs       Compress Customer-by-Sufficient-Statistic
+                        Matrix
+pnbd.pmf                Pareto/NBD Probability Mass Function
+pnbd.pmf.General        Generalized Pareto/NBD Probability Mass
+                        Function
+spend.EstimateParameters
+                        Spend Parameter Estimation
+spend.LL                Spend Log-Likelihood
+spend.expected.value    Conditional expected transaction value
+spend.marginal.likelihood
+                        Gamma-gamma marginal likelihood
+spend.plot.average.transaction.value
+                        Plot Actual vs. Expected Average Transaction
+                        Value
