@@ -1,6 +1,6 @@
-# BTYD
+# BTYD2
 
-Implementing Buy 'Til You Die Models, with a patch
+A patch for the original [BTYD](http://cran.r-project.org/web/packages/BTYD/index.html)
 
 In its original version the Pareto/NBD part of this failed for me for reasons explained [here](https://github.com/theofilos/BTYD). So, I implemented the fix that Theo Strinopoulos proposed, rebuilt from source, and then it worked.
 
