@@ -1,10 +1,16 @@
 # BTYD2
 
-A patch for the original [BTYD](http://cran.r-project.org/web/packages/BTYD/index.html)
+A patch for the `pnbd.LL()` function in the original [BTYD](http://cran.r-project.org/web/packages/BTYD/index.html) package, first proposed by [Theo Strinopoulos](https://github.com/theofilos). 
 
-In its original version the Pareto/NBD part of this failed for me for reasons explained [here](https://github.com/theofilos/BTYD). So, I implemented the fix that Theo Strinopoulos proposed, rebuilt from source, and then it worked.
+## Justification
 
-To build and install after `git clone`, use the standard way, not the `devtools` kit. The original BTYD package documentation is not compatible with `devtools` and you risk obliterating most of your help files.
+In its original version the Pareto/NBD part of the BTYD packages failed for me, as it did for Theo, for reasons he explained [here](https://github.com/theofilos/BTYD). So, I implemented his fix, rebuilt from source, and then it worked.
+
+BTYD2 is for the curious and impatient: you can install it now, side-by-side with the unaltered BTYD from CRAN. I also opened a pull request to the [GitHub-hosted version of BTYD](https://github.com/cran/BTYD). If it is accepted, BTYD2 will be obsolete. Until then, you can use it as an alternative.
+
+## How to install
+
+First `git clone`, then build the standard way, not with the `devtools` kit. The original BTYD package documentation is not compatible with `devtools::document()` and you risk obliterating most of your help files.
 
 So, at the command line, just do this:
 
