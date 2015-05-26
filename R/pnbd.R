@@ -68,14 +68,15 @@ pnbd.LL <- function(params, x, t.x, T.cal) {
     
     maxab <- max(alpha, beta)
     absab <- abs(alpha - beta)
-    
+
     param2 <- s + 1
     if (alpha < beta) {
         param2 <- r + x
     }
     
-    # stuff below is equivalent to fix proposed at
-    # https://github.com/theofilos/BTYD
+    # stuff below is almost equivalent to fix proposed at
+    # https://github.com/theofilos/BTYD.
+    # the exception is my correction for half2, lines 94-96.
     part1 <- r * log(alpha) + s * log(beta) - lgamma(r) + lgamma(r + x)
     
     a <- alpha+T.cal
@@ -86,9 +87,13 @@ pnbd.LL <- function(params, x, t.x, T.cal) {
     
     part2 <- (s-w) * log(a) - s * log(c) 
     
-    stump <- ( c/b )^s
-    half1 <- ( b/a )^(s-w) 
-    half2 <- ( d/a )^(s-w) 
+    stump <- (c / b)^s
+    half1 <- (a / b)^(w - s)
+    half2 <- (a / d)^(w - s)
+    
+    # correction for half2
+    corh2 <- (b / d)^s
+    half2 <- half2 * corh2   
     
     if (absab == 0) {    
       part2_times_F1_min_F2 <- stump * (half1 - half2)

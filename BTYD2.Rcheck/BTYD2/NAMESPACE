@@ -1,4 +1,0 @@
-exportPattern("^[[:alpha:]]+")
-exportPattern("^[^\\.]")
-importFrom(hypergeo, hypergeo, genhypergeo)
-import(Matrix)
