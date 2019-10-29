@@ -3,7 +3,7 @@
 \documentclass[10pt, letterpaper, onecolumn, oneside, final]{article}
 \usepackage{microtype}
 \usepackage[pdftex]{hyperref}
-\hypersetup{colorlinks, citecolor=black, linkcolor=black, urlcolor=black}
+\hypersetup{colorlinks, citecolor=black, linkcolor=black, urlcolor=blue}
 % define author and title
 % setlength{\parindent}{0pt}
 % setlength{\parskip}{1ex plus 0.2ex minus 0.2ex}
@@ -15,15 +15,35 @@
 \maketitle %generate the title
 %\tableofcontents %insert the table of contents
 
-\section{Gabi's Disclaimer}
+\section{Gabi Huiber's Disclaimer (September 15, 2019)}
 
-The BTYD2 package is my attempt to patch the original BTYD package using
-a fix proposed \href{https://github.com/theofilos/BTYD}{here}. This
-walkthrough still applies, so everywhere below this line where you see
-"the BTYD package" you should use it interchangeably with "the BTYD2 
-package." Everything below this line is the authors' original text, 
-save for evaluated references to BTYD file paths, libraries, etc. 
-which all now point to their BTYD2 counterparts.
+The BTYD2 package is my attempt to patch the 
+Pareto/NBD component of the original BTYD package 
+using the fix that Theo Strinopoulos proposed \href{https://github.com/theofilos/BTYD}{here}. 
+
+The original BTYD walkthrough applies to BTYD2 too. Everywhere below this 
+section "the BTYD package" can be read as "the BTYD2 package." 
+
+Everything below this disclaimer is the authors' original text. The only 
+difference is that all evaluated references to BTYD file paths, 
+libraries, etc. now point to their BTYD2 counterparts. 
+
+These BTYD2 counterparts have been modified as follows: 
+\begin{itemize}
+\item Some functions stored in \texttt{R/pnbd.R} (you can tell them by their names, 
+which start with \texttt{pnbd}) have been changed. 
+\item Some of these functions now take an extra logical argument, \texttt{hardie}; 
+if TRUE, this function (or a function it calls) uses Bruce Hardie's 
+algorithm for estimating the real part of the Gaussian hypergeometric 
+function (see MATLAB code on page 4 of \href{http://brucehardie.com/notes/008/pareto_nbd_MATLAB.pdf}{Fader et al. (2005)}); 
+if FALSE, it makes use of the 
+\href{https://cran.r-project.org/web/packages/hypergeo/index.html}{hypergeo} R package from CRAN. 
+For the purposes of this vignette, this parameter is set globally as \texttt{allHardie = TRUE}. This
+mirrors the choice of the BTYD package authors, who use Bruce Hardie's algorithm everywhere.
+\item Instead of \texttt{base::optim}, the \texttt{pnbd} functions use \texttt{optimx::optimx} and they 
+now allow you to pick your optimization method, using the \texttt{method} argument, which defaults to \texttt{L-BFGS-B} without any constraints, as in the original package.
+\item Some of the functions stored in \texttt{R/bgnbd.R} have been changed as well, in order to implement the fix for the \texttt{NUM!} error problem proposed in \href{http://www.brucehardie.com/notes/027/bgnbd_num_error.pdf}{this note}. 
+\end{itemize}
 
 \section{Introduction}
 
@@ -34,9 +54,9 @@ models presented in the package are the Pareto/NBD, BG/NBD and BG/BB
 models, which describe scenario of the firm not being able to observe
 the exact time at which a customer drops out. We will cover
 each in turn. If you are unfamiliar with these models,
-Fader et al. (2004) provides a description of the BG/NBD model,
-Fader et al. (2005) provides a description of the Pareto/NBD model and
-Fader et al. (2010) provides a description of the BG/BB model.
+\href{http://brucehardie.com/papers/018/fader_et_al_mksc_05.pdf}{Fader et al. (2004)} provides a description of the BG/NBD model,
+\href{http://www.brucehardie.com/notes/008/pareto_nbd_MATLAB.pdf}{Fader et al. (2005)} provides a description of the Pareto/NBD model and
+\href{http://www.brucehardie.com/papers/020/}{Fader et al. (2010)} provides a description of the BG/BB model.
 
 \section{Pareto/NBD}
 
@@ -55,12 +75,19 @@ this dataset quite well.
 
 <<fig.path="figure/", label="pnbdCalibrationFit", results="hide", echo=FALSE, include=FALSE>>=
 library(knitr)
-opts_chunk$set(comment="#");
-library(BTYD2);
-data(cdnowSummary);
-est.params <- cdnowSummary$est.params;
-cal.cbs <- cdnowSummary$cbs;
-cal.fit <- pnbd.PlotFrequencyInCalibration(est.params, cal.cbs, 7)
+opts_chunk$set(comment="#")
+library(BTYD2)
+# Set the hardie parameter value here, apply it everywhere
+allHardie <- TRUE
+data(cdnowSummary)
+est.params <- cdnowSummary$est.params
+cal.cbs <- cdnowSummary$cbs
+pdf(file = 'figure/pnbdCalibrationFit.pdf')
+cal.fit <- pnbd.PlotFrequencyInCalibration(params = est.params, 
+                                           cal.cbs = cal.cbs, 
+                                           censor = 7, 
+                                           hardie = allHardie)
+dev.off()
 @ 
 
 \begin{figure}
@@ -262,10 +289,13 @@ are provided. The function which is maximized is \texttt{pnbd.cbs.LL},
 which returns the log-likelihood of a given set of parameters for a
 customer-by-sufficient-statistic matrix.
 
-<<>>=
-params <- pnbd.EstimateParameters(cal.cbs);
-params
-LL <- pnbd.cbs.LL(params, cal.cbs);
+<<warning=FALSE>>=
+params <- pnbd.EstimateParameters(cal.cbs = cal.cbs, 
+                                  hardie = allHardie);
+round(params, digits = 3)
+LL <- pnbd.cbs.LL(params = params, 
+                  cal.cbs = cal.cbs, 
+                  hardie = allHardie)
 LL
 @ 
 
@@ -274,16 +304,20 @@ output we get. Let's run it a couple more times, with its own output
 as a starting point, to see if it converges:
 
 <<>>=
-p.matrix <- c(params, LL);
+p.matrix <- c(params, LL)
 for (i in 1:2){
-params <- pnbd.EstimateParameters(cal.cbs, params);
-LL <- pnbd.cbs.LL(params, cal.cbs);
-p.matrix.row <- c(params, LL);
-p.matrix <- rbind(p.matrix, p.matrix.row);
+  params <- pnbd.EstimateParameters(cal.cbs = cal.cbs, 
+                                    par.start = params, 
+                                    hardie = allHardie)
+  LL <- pnbd.cbs.LL(params = params, 
+                    cal.cbs = cal.cbs, 
+                    hardie = allHardie)
+  p.matrix.row <- c(params, LL)
+  p.matrix <- rbind(p.matrix, p.matrix.row)
 }
-colnames(p.matrix) <- c("r", "alpha", "s", "beta", "LL");
-rownames(p.matrix) <- 1:3;
-p.matrix;
+colnames(p.matrix) <- c("r", "alpha", "s", "beta", "LL")
+rownames(p.matrix) <- 1:3
+round(p.matrix, digits = 3)
 @ 
 
 This estimation does converge. I am not going to demonstrate it here,
@@ -298,7 +332,7 @@ using \texttt{pnbd.PlotTransactionRateHeterogeneity(params)}. We also
 know that s and beta describe the gamma mixing distribution of the
 Pareto (or gamma exponential) dropout process. We can see this gamma
 distribution in figure \ref{fig:pnbdDropoutHeterogeneity}, plotted
-using \texttt{pnbd.PlotDropoutHeterogeneity(params)}.
+using \texttt{pnbd.PlotDropoutRateHeterogeneity(params)}.
 
 From these, we can already tell something about our customers: they
 are more likely to have low values for their individual poisson
@@ -306,7 +340,9 @@ transaction process parameters, and more likely to have low values for
 their individual exponential dropout process parameters.
 
 <<fig.path="figure/", label="pnbdTransactionHeterogeneity", results="hide", include=FALSE>>=
-pnbd.PlotTransactionRateHeterogeneity(params);
+pdf(file = 'figure/pnbdTransactionHeterogeneity.pdf')
+pnbd.PlotTransactionRateHeterogeneity(params = params)
+dev.off()
 @ 
 
 \begin{figure}
@@ -315,9 +351,11 @@ pnbd.PlotTransactionRateHeterogeneity(params);
   \caption{Transaction rate heterogeneity of estimated parameters.}\label{fig:pnbdTransactionHeterogeneity}
   \end{center}
 \end{figure}
-      
+
 <<fig.path="figure/", label="pnbdDropoutHeterogeneity", results="hide", include=FALSE>>=
-pnbd.PlotDropoutRateHeterogeneity(params);
+pdf(file = 'figure/pnbdDropoutHeterogeneity.pdf')
+pnbd.PlotDropoutRateHeterogeneity(params = params)
+dev.off()
 @ 
 
 \begin{figure}
@@ -340,7 +378,7 @@ or 1 year. This is because our parameters were estimated using weekly
 data.
 
 <<>>=
-pnbd.Expectation(params, t=52);
+pnbd.Expectation(params = params, t = 52)
 @ 
 
 We can also obtain expected characteristics for a specific customer,
@@ -358,9 +396,17 @@ cal.cbs["1516",]
 x <- cal.cbs["1516", "x"]
 t.x <- cal.cbs["1516", "t.x"]
 T.cal <- cal.cbs["1516", "T.cal"]
-pnbd.ConditionalExpectedTransactions(params, T.star = 52, 
-                                     x, t.x, T.cal)
-pnbd.PAlive(params, x, t.x, T.cal)
+pnbd.ConditionalExpectedTransactions(params, 
+                                     T.star = 52, 
+                                     x, 
+                                     t.x, 
+                                     T.cal, 
+                                     hardie = allHardie)
+pnbd.PAlive(params, 
+            x, 
+            t.x, 
+            T.cal, 
+            hardie = allHardie)
 @ 
 
 There is one more point to note here---using the conditional
@@ -368,10 +414,15 @@ expectation function, we can see the ``increasing frequency paradox''
 in action:
 
 <<tidy=FALSE>>=
+# avoid overflow in LaTeX code block here:
+cet <- "pnbd.ConditionalExpectedTransactions"
 for (i in seq(10, 25, 5)){
-  cond.expectation <- pnbd.ConditionalExpectedTransactions(
-                        params, T.star = 52, x = i,
-                        t.x = 20, T.cal = 39)
+  cond.expectation <- match.fun(cet)(params, 
+                                     T.star = 52, 
+                                     x = i, 
+                                     t.x = 20, 
+                                     T.cal = 39, 
+                                     hardie = allHardie)
   cat ("x:",i,"\t Expectation:",cond.expectation, fill = TRUE)
 }
 @ 
@@ -389,7 +440,10 @@ figure \ref{fig:pnbdCalibrationFit}, which was generated using the
 following code:
 
 <<results="hide", eval=FALSE>>=
-pnbd.PlotFrequencyInCalibration(params, cal.cbs, 7)
+pnbd.PlotFrequencyInCalibration(params = params, 
+                                cal.cbs = cal.cbs, 
+                                censor = 7, 
+                                hardie = allHardie)
 @ 
 
 This function obviously needs to be able to generate expected data
@@ -426,7 +480,7 @@ for (i in 1:nrow(cal.cbs)){
   cal.trans <- cal.cbs[i, "x"]
   cal.cbs[i, "x.star"] <-  tot.cust.trans - cal.trans
 }
-cal.cbs[1:3,]
+round(cal.cbs[1:3,], digits = 3)
 @ 
 
 Now we can see how well our model does in the holdout period. Figure
@@ -439,10 +493,16 @@ frequencies for these bins.
 T.star <- 39 # length of the holdout period
 censor <- 7  # This censor serves the same purpose described above
 x.star <- cal.cbs[,"x.star"]
-comp <- pnbd.PlotFreqVsConditionalExpectedFrequency(params, T.star,
-                                              cal.cbs, x.star, censor)
+pdf(file = 'figure/pnbdCondExpComp.pdf')
+comp <- pnbd.PlotFreqVsConditionalExpectedFrequency(params, 
+                                                    T.star, 
+                                                    cal.cbs, 
+                                                    x.star, 
+                                                    censor, 
+                                                    hardie = allHardie)
+dev.off()
 rownames(comp) <- c("act", "exp", "bin")
-comp
+round(comp, digits = 3)
 @
 
 \begin{figure}
@@ -490,7 +550,7 @@ for (j in 1:78){
 Now, we can make a plot comparing the actual number of transactions to
 the expected number of transactions on a weekly basis, as shown in
 figure \ref{fig:pnbdTrackingInc}. Note that we set
-\texttt{n.periods.final} to 78. This is to show that we are workly
+\texttt{n.periods.final} to 78. This is to show that we are working
 with weekly data. If our tracking data was daily, we would use 546
 here---the function would plot our daily tracking data against
 expected daily transactions, instead of plotting our weekly tracking
@@ -505,10 +565,15 @@ may be in different time periods.
 T.cal <- cal.cbs[,"T.cal"]
 T.tot <- 78
 n.periods.final <- 78
-inc.tracking <- pnbd.PlotTrackingInc(params, T.cal, 
-                                     T.tot, w.track.data,
-                                     n.periods.final)
-inc.tracking[,20:25]
+
+pdf(file = 'figure/pnbdTrackingInc.pdf')
+inc.tracking <- pnbd.PlotTrackingInc(params = params, 
+                                     T.cal = T.cal, 
+                                     T.tot = T.tot, 
+                                     actual.inc.tracking.data = w.track.data, 
+                                     n.periods.final = n.periods.final)
+dev.off()
+round(inc.tracking[,20:25], digits = 3)
 @ 
 
 \begin{figure}
@@ -530,10 +595,14 @@ time, as shown in figure \ref{fig:pnbdTrackingCum}.
 
 <<fig.path="figure/", label="pnbdTrackingCum", tidy=FALSE, echo=TRUE, fig.keep='none'>>=
 cum.tracking.data <- cumsum(w.track.data)
-cum.tracking <- pnbd.PlotTrackingCum(params, T.cal, 
-                                     T.tot, cum.tracking.data,
-                                     n.periods.final)
-cum.tracking[,20:25]
+pdf(file = 'figure/pnbdTrackingCum.pdf')
+cum.tracking <- pnbd.PlotTrackingCum(params = params, 
+                                     T.cal = T.cal, 
+                                     T.tot = T.tot, 
+                                     actual.cu.tracking.data = cum.tracking.data, 
+                                     n.periods.final = n.periods.final)
+dev.off()
+round(cum.tracking[,20:25], digits = 3)
 @ 
 
 \begin{figure}
@@ -570,7 +639,9 @@ this dataset quite well.
 data(cdnowSummary);
 est.params <- c(0.243, 4.414, 0.793, 2.426);
 cal.cbs <- cdnowSummary$cbs;
+pdf(file = 'figure/bgnbdCalibrationFit.pdf')
 cal.fit <- bgnbd.PlotFrequencyInCalibration(est.params, cal.cbs, 7)
+dev.off()
 @ 
 
 \begin{figure}
@@ -824,7 +895,9 @@ transaction process parameters, and more likely to have low values for
 their individual geometric dropout probability parameters.
 
 <<fig.path="figure/", label="bgnbdTransactionHeterogeneity", results="hide", include=FALSE>>=
-bgnbd.PlotTransactionRateHeterogeneity(params);
+pdf(file = 'figure/bgnbdTransactionHeterogeneity.pdf')
+bgnbd.PlotTransactionRateHeterogeneity(params)
+dev.off()
 @ 
 
 \begin{figure}
@@ -835,7 +908,9 @@ bgnbd.PlotTransactionRateHeterogeneity(params);
 \end{figure}
       
 <<fig.path="figure/", label="bgnbdDropoutHeterogeneity", results="hide", include=FALSE>>=
-bgnbd.PlotDropoutRateHeterogeneity(params);
+pdf(file = 'figure/bgnbdDropoutHeterogeneity.pdf')
+bgnbd.PlotDropoutRateHeterogeneity(params)
+dev.off()
 @ 
 
 \begin{figure}
@@ -957,8 +1032,11 @@ frequencies for these bins.
 T.star <- 39 # length of the holdout period
 censor <- 7  # This censor serves the same purpose described above
 x.star <- cal.cbs[,"x.star"]
+
+pdf(file = 'figure/bgnbdCondExpComp.pdf')
 comp <- bgnbd.PlotFreqVsConditionalExpectedFrequency(params, T.star,
                                               cal.cbs, x.star, censor)
+dev.off()
 rownames(comp) <- c("act", "exp", "bin")
 comp
 @
@@ -1019,13 +1097,18 @@ the total period (\texttt{T.tot} and \texttt{n.periods.final}) is that
 your customer-by-sufficient-statistic matrix and your tracking data
 may be in different time periods.
 
-<<results="hide", eval=FALSE>>=
+<<fig.path="figure/", label="bgnbdTrackingInc", tidy=FALSE, echo=TRUE, fig.keep='none'>>=
 T.cal <- cal.cbs[,"T.cal"]
 T.tot <- 78
 n.periods.final <- 78
-inc.tracking <- bgnbd.PlotTrackingInc(params, T.cal, 
-                                     T.tot, w.track.data,
-                                     n.periods.final)
+pdf(file = 'figure/bgnbdTrackingInc.pdf')
+inc.tracking <- bgnbd.PlotTrackingInc(params, 
+                                      T.cal, 
+                                      T.tot, 
+                                      w.track.data,
+                                      n.periods.final, 
+                                      allHardie)
+dev.off()
 inc.tracking[,20:25]
 @ 
 
@@ -1044,12 +1127,17 @@ purchases can vary so much from one week to the next. For these
 reasons, we may need to smooth the data out by cumulating it over
 time, as shown in Figure \ref{fig:bgnbdTrackingCum}.
 
+<<fig.path="figure/", label="bgnbdTrackingCum", tidy=FALSE, echo=TRUE, fig.keep='none'>>=
 
-<<results="hide", eval=FALSE>>=
 cum.tracking.data <- cumsum(w.track.data)
-cum.tracking <- bgnbd.PlotTrackingCum(params, T.cal, 
-                                     T.tot, cum.tracking.data,
-                                     n.periods.final)
+pdf(file = 'figure/bgnbdTrackingCum.pdf')
+cum.tracking <- bgnbd.PlotTrackingCum(params, 
+                                      T.cal, 
+                                      T.tot, 
+                                      cum.tracking.data,
+                                      n.periods.final, 
+                                      allHardie)
+dev.off()
 cum.tracking[,20:25]
 @ 
 
@@ -1079,10 +1167,12 @@ Fader et. al. (2010). Figure \ref{fig:bgbbCalibrationFit} shows that
 this model also fits the right type of data well.
 
 <<fig.path="figure/", label="bgbbCalibrationFit", results="hide", echo=FALSE, include=FALSE>>=
-data(donationsSummary);
-rf.matrix <- donationsSummary$rf.matrix;
-params <- bgbb.EstimateParameters(rf.matrix);
+data(donationsSummary)
+rf.matrix <- donationsSummary$rf.matrix
+params <- bgbb.EstimateParameters(rf.matrix)
+pdf(file = 'figure/bgbbCalibrationFit.pdf')
 cal.fit <- bgbb.PlotFrequencyInCalibration(params, rf.matrix, 6)
+dev.off()
 @ 
 
 \begin{figure}
@@ -1181,7 +1271,9 @@ want---their transaction parameters are more likely to be high, and
 their dropout parameters are more likely to be low.
 
 <<fig.path="figure/", label="bgbbTransactionHeterogeneity", results="hide", include=FALSE>>=
-bgbb.PlotTransactionRateHeterogeneity(params);
+pdf(file = 'figure/bgbbTransactionHeterogeneity.pdf')
+bgbb.PlotTransactionRateHeterogeneity(params)
+dev.off()
 @ 
 
 \begin{figure}
@@ -1192,7 +1284,9 @@ bgbb.PlotTransactionRateHeterogeneity(params);
 \end{figure}
       
 <<fig.path="figure/", label="bgbbDropoutHeterogeneity", results="hide", include=FALSE>>=
-bgbb.PlotDropoutRateHeterogeneity(params);
+pdf(file = 'figure/bgbbDropoutHeterogeneity.pdf')
+bgbb.PlotDropoutRateHeterogeneity(params)
+dev.off()
 @ 
 
 \begin{figure}
@@ -1281,8 +1375,10 @@ according to calibration period frequencies.
 <<fig.path="figure/", label="bgbbCondExpComp", tidy=FALSE, echo=TRUE, size="small", fig.keep='none'>>=
 n.star <- 5 # length of the holdout period
 x.star <- donationsSummary$x.star
+pdf(file = 'figure/bgbbCondExpComp.pdf')
 comp <- bgbb.PlotFreqVsConditionalExpectedFrequency(params, n.star, 
                                                     rf.matrix, x.star)
+dev.off()
 rownames(comp) <- c("act", "exp", "bin")
 comp
 @
@@ -1299,8 +1395,10 @@ recency. Figure \ref{fig:bgbbCondExpCompRec} shows the fit of holdout
 period frequencies, with customers binned in this manner.
 
 <<fig.path="figure/", label="bgbbCondExpCompRec", tidy=FALSE, echo=TRUE, size="small", fig.keep='none'>>=
+pdf(file = 'figure/bgbbCondExpCompRec.pdf')
 comp <- bgbb.PlotRecVsConditionalExpectedFrequency(params, n.star, 
                                                    rf.matrix, x.star)
+dev.off()
 rownames(comp) <- c("act", "exp", "bin")
 comp
 @
@@ -1324,9 +1422,11 @@ provided by the package.
 inc.track.data <- donationsSummary$annual.trans
 n.cal <- 6
 xtickmarks <- 1996:2006
+pdf(file = 'figure/bgbbTrackingInc.pdf')
 inc.tracking <- bgbb.PlotTrackingInc(params, rf.matrix, 
                                      inc.track.data, 
                                      xticklab = xtickmarks)
+dev.off()
 rownames(inc.tracking) <- c("act", "exp")
 inc.tracking
 @ 
@@ -1344,8 +1444,10 @@ figure \ref{fig:bgbbTrackingCum}).
 
 <<fig.path="figure/", label="bgbbTrackingCum", tidy=FALSE, echo=TRUE, size="small", fig.keep='none'>>=
 cum.track.data <- cumsum(inc.track.data)
+pdf(file = 'figure/bgbbTrackingCum.pdf')
 cum.tracking <- bgbb.PlotTrackingCum(params, rf.matrix, cum.track.data, 
                                      xticklab = xtickmarks)
+dev.off()
 rownames(cum.tracking) <- c("act", "exp")
 cum.tracking
 @ 
