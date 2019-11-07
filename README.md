@@ -10,7 +10,9 @@ In its original version the Pareto/NBD (pnbd) part of the BTYD package failed fo
 version. The long version is that in the process of implementing the fix I made some changes to the choice of optimization routine 
 (now using `optimx` as opposed to `optim`), Gaussian hypergeometric (now you have the option of using the `hypergeo` package) and 
 I found some opportunities for refactoring functions defined in both the `pnbd` and the `bgnbd` (Beta-Geometric Negative Binomial) 
-groups. Finally, I rebuilt BTYD2 and checked that it would return the same numbers as BTYD did when running the examples in the original BTYD vignette.
+groups. Finally, I rebuilt BTYD2
+and checked that it would return the same numbers as BTYD did when running the examples in the original BTYD vignette (see 
+threeway_walkthrough.R).
 
 BTYD2 is for the curious and impatient: you can install it now, side-by-side with the unaltered BTYD from CRAN. There is a 
 [GitHub-hosted version of BTYD](https://github.com/cran/BTYD) but it's read-only. If the original BTYD were still maintained, 
