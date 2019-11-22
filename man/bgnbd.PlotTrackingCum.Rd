@@ -4,10 +4,18 @@
 \alias{bgnbd.PlotTrackingCum}
 \title{BG/NBD Tracking Cumulative Transactions Plot}
 \usage{
-bgnbd.PlotTrackingCum(params, T.cal, T.tot, actual.cu.tracking.data,
-  n.periods.final = NA, hardie, xlab = "Week",
-  ylab = "Cumulative Transactions", xticklab = NULL,
-  title = "Tracking Cumulative Transactions")
+bgnbd.PlotTrackingCum(
+  params,
+  T.cal,
+  T.tot,
+  actual.cu.tracking.data,
+  n.periods.final = NA,
+  hardie,
+  xlab = "Week",
+  ylab = "Cumulative Transactions",
+  xticklab = NULL,
+  title = "Tracking Cumulative Transactions"
+)
 }
 \arguments{
 \item{params}{BG/NBD parameters - a vector with r, alpha, a, and b, in that

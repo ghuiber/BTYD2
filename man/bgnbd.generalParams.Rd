@@ -4,8 +4,7 @@
 \alias{bgnbd.generalParams}
 \title{Define general parameters}
 \usage{
-bgnbd.generalParams(params, func, x, t.x, T.cal, T.star = NULL,
-  hardie = NULL)
+bgnbd.generalParams(params, func, x, t.x, T.cal, T.star = NULL, hardie = NULL)
 }
 \arguments{
 \item{params}{BG/NBD parameters - a vector with r, alpha, a, and b, in that

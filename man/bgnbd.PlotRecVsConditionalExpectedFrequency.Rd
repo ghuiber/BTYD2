@@ -4,10 +4,16 @@
 \alias{bgnbd.PlotRecVsConditionalExpectedFrequency}
 \title{BG/NBD Plot Actual vs. Conditional Expected Frequency by Recency}
 \usage{
-bgnbd.PlotRecVsConditionalExpectedFrequency(params, cal.cbs, T.star,
-  x.star, xlab = "Calibration period recency",
-  ylab = "Holdout period transactions", xticklab = NULL,
-  title = "Actual vs. Conditional Expected Transactions by Recency")
+bgnbd.PlotRecVsConditionalExpectedFrequency(
+  params,
+  cal.cbs,
+  T.star,
+  x.star,
+  xlab = "Calibration period recency",
+  ylab = "Holdout period transactions",
+  xticklab = NULL,
+  title = "Actual vs. Conditional Expected Transactions by Recency"
+)
 }
 \arguments{
 \item{params}{BG/NBD parameters - a vector with r, alpha, a, and b, in that

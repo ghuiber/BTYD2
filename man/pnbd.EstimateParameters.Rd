@@ -4,9 +4,14 @@
 \alias{pnbd.EstimateParameters}
 \title{Pareto/NBD Parameter Estimation}
 \usage{
-pnbd.EstimateParameters(cal.cbs, par.start = c(1, 1, 1, 1),
-  max.param.value = 10000, method = "L-BFGS-B", hardie,
-  hessian = FALSE)
+pnbd.EstimateParameters(
+  cal.cbs,
+  par.start = c(1, 1, 1, 1),
+  max.param.value = 10000,
+  method = "L-BFGS-B",
+  hardie,
+  hessian = FALSE
+)
 }
 \arguments{
 \item{cal.cbs}{calibration period CBS (customer by sufficient statistic). It

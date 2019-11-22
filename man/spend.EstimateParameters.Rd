@@ -4,8 +4,12 @@
 \alias{spend.EstimateParameters}
 \title{Spend Parameter Estimation}
 \usage{
-spend.EstimateParameters(m.x.vector, x.vector, par.start = c(1, 1, 1),
-  max.param.value = 10000)
+spend.EstimateParameters(
+  m.x.vector,
+  x.vector,
+  par.start = c(1, 1, 1),
+  max.param.value = 10000
+)
 }
 \arguments{
 \item{m.x.vector}{a vector with each customer's average observed transaction

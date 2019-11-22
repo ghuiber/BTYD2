@@ -4,8 +4,13 @@
 \alias{bgnbd.ExpectedCumulativeTransactions}
 \title{BG/NBD Expected Cumulative Transactions}
 \usage{
-bgnbd.ExpectedCumulativeTransactions(params, T.cal, T.tot, n.periods.final,
-  hardie)
+bgnbd.ExpectedCumulativeTransactions(
+  params,
+  T.cal,
+  T.tot,
+  n.periods.final,
+  hardie
+)
 }
 \arguments{
 \item{params}{BG/NBD parameters - a vector with r, alpha, a, and b, in that

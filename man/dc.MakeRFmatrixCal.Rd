@@ -4,8 +4,12 @@
 \alias{dc.MakeRFmatrixCal}
 \title{Make Calibration Period Recency-Frequency Matrix}
 \usage{
-dc.MakeRFmatrixCal(frequencies, periods.of.final.purchases,
-  num.of.purchase.periods, holdout.frequencies = NULL)
+dc.MakeRFmatrixCal(
+  frequencies,
+  periods.of.final.purchases,
+  num.of.purchase.periods,
+  holdout.frequencies = NULL
+)
 }
 \arguments{
 \item{frequencies}{vector which indicates the number of repeat transactions

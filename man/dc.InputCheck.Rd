@@ -4,8 +4,7 @@
 \alias{dc.InputCheck}
 \title{Check the inputs to functions that use this common pattern}
 \usage{
-dc.InputCheck(params, func, printnames = c("r", "alpha", "s", "beta"),
-  ...)
+dc.InputCheck(params, func, printnames = c("r", "alpha", "s", "beta"), ...)
 }
 \arguments{
 \item{params}{If used by \code{pnbd.[...]} functions, Pareto/NBD parameters

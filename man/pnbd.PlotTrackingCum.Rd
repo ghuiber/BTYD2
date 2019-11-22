@@ -4,10 +4,17 @@
 \alias{pnbd.PlotTrackingCum}
 \title{Pareto/NBD Tracking Cumulative Transactions Plot}
 \usage{
-pnbd.PlotTrackingCum(params, T.cal, T.tot, actual.cu.tracking.data,
-  n.periods.final = NA, xlab = "Week",
-  ylab = "Cumulative Transactions", xticklab = NULL,
-  title = "Tracking Cumulative Transactions")
+pnbd.PlotTrackingCum(
+  params,
+  T.cal,
+  T.tot,
+  actual.cu.tracking.data,
+  n.periods.final = NA,
+  xlab = "Week",
+  ylab = "Cumulative Transactions",
+  xticklab = NULL,
+  title = "Tracking Cumulative Transactions"
+)
 }
 \arguments{
 \item{params}{Pareto/NBD parameters - a vector with r, alpha, s, and beta, in

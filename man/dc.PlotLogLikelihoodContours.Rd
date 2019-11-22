@@ -4,10 +4,17 @@
 \alias{dc.PlotLogLikelihoodContours}
 \title{Plot Log-Likelihood Contours}
 \usage{
-dc.PlotLogLikelihoodContours(loglikelihood.fcn, predicted.params, ...,
-  n.divs = 2, multiple.screens = FALSE, num.contour.lines = 10,
-  zoom.percent = 0.9, allow.neg.params = FALSE,
-  param.names = c("param 1", "param 2", "param 3", "param 4"))
+dc.PlotLogLikelihoodContours(
+  loglikelihood.fcn,
+  predicted.params,
+  ...,
+  n.divs = 2,
+  multiple.screens = FALSE,
+  num.contour.lines = 10,
+  zoom.percent = 0.9,
+  allow.neg.params = FALSE,
+  param.names = c("param 1", "param 2", "param 3", "param 4")
+)
 }
 \arguments{
 \item{loglikelihood.fcn}{log-likelihood function to plot.}

@@ -4,9 +4,15 @@
 \alias{bgnbd.PlotFrequencyInCalibration}
 \title{BG/NBD Plot Frequency in Calibration Period}
 \usage{
-bgnbd.PlotFrequencyInCalibration(params, cal.cbs, censor,
-  plotZero = TRUE, xlab = "Calibration period transactions",
-  ylab = "Customers", title = "Frequency of Repeat Transactions")
+bgnbd.PlotFrequencyInCalibration(
+  params,
+  cal.cbs,
+  censor,
+  plotZero = TRUE,
+  xlab = "Calibration period transactions",
+  ylab = "Customers",
+  title = "Frequency of Repeat Transactions"
+)
 }
 \arguments{
 \item{params}{BG/NBD parameters - a vector with r, alpha, a, and b, in that

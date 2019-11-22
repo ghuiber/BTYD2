@@ -4,9 +4,17 @@
 \alias{pnbd.PlotTrackingInc}
 \title{Pareto/NBD Tracking Incremental Transactions Comparison}
 \usage{
-pnbd.PlotTrackingInc(params, T.cal, T.tot, actual.inc.tracking.data,
-  n.periods.final = NA, xlab = "Week", ylab = "Transactions",
-  xticklab = NULL, title = "Tracking Weekly Transactions")
+pnbd.PlotTrackingInc(
+  params,
+  T.cal,
+  T.tot,
+  actual.inc.tracking.data,
+  n.periods.final = NA,
+  xlab = "Week",
+  ylab = "Transactions",
+  xticklab = NULL,
+  title = "Tracking Weekly Transactions"
+)
 }
 \arguments{
 \item{params}{Pareto/NBD parameters - a vector with r, alpha, s, and beta, in

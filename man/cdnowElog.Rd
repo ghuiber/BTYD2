@@ -7,7 +7,7 @@
 \format{A comma-delimited file representing an event log with 6,919 entries.
 It has 5 columns: The customer's ID in the master dataset, the customer's
 ID in this dataset (which represents 1/10th of the master dataset), the
-date of the transaction in the format "%Y%m%d" (e.g. 19970225), the number
+date of the transaction in the format "\%Y\%m\%d" (e.g. 19970225), the number
 of CDs purchased, and the dollar value of the transaction.}
 \source{
 Can be found \href{www.brucehardie.com/datasets}{online}.

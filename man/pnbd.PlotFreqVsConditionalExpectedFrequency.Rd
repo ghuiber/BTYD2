@@ -4,10 +4,18 @@
 \alias{pnbd.PlotFreqVsConditionalExpectedFrequency}
 \title{Pareto/NBD Plot Frequency vs. Conditional Expected Frequency}
 \usage{
-pnbd.PlotFreqVsConditionalExpectedFrequency(params, T.star, cal.cbs,
-  x.star, censor, hardie, xlab = "Calibration period transactions",
-  ylab = "Holdout period transactions", xticklab = NULL,
-  title = "Conditional Expectation")
+pnbd.PlotFreqVsConditionalExpectedFrequency(
+  params,
+  T.star,
+  cal.cbs,
+  x.star,
+  censor,
+  hardie,
+  xlab = "Calibration period transactions",
+  ylab = "Holdout period transactions",
+  xticklab = NULL,
+  title = "Conditional Expectation"
+)
 }
 \arguments{
 \item{params}{Pareto/NBD parameters - a vector with r, alpha, s, and beta, in

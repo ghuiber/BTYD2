@@ -4,9 +4,16 @@
 \alias{pnbd.PlotFrequencyInCalibration}
 \title{Pareto/NBD Plot Frequency in Calibration Period}
 \usage{
-pnbd.PlotFrequencyInCalibration(params, cal.cbs, censor, hardie,
-  plotZero = TRUE, xlab = "Calibration period transactions",
-  ylab = "Customers", title = "Frequency of Repeat Transactions")
+pnbd.PlotFrequencyInCalibration(
+  params,
+  cal.cbs,
+  censor,
+  hardie,
+  plotZero = TRUE,
+  xlab = "Calibration period transactions",
+  ylab = "Customers",
+  title = "Frequency of Repeat Transactions"
+)
 }
 \arguments{
 \item{params}{Pareto/NBD parameters - a vector with r, alpha, s, and beta, in

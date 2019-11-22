@@ -4,8 +4,14 @@
 \alias{bgnbd.ConditionalExpectedTransactions}
 \title{BG/NBD Conditional Expected Transactions}
 \usage{
-bgnbd.ConditionalExpectedTransactions(params, T.star, x, t.x, T.cal,
-  hardie = TRUE)
+bgnbd.ConditionalExpectedTransactions(
+  params,
+  T.star,
+  x,
+  t.x,
+  T.cal,
+  hardie = TRUE
+)
 }
 \arguments{
 \item{params}{BG/NBD parameters - a vector with r, alpha, a, and b, in that

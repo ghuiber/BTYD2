@@ -4,9 +4,18 @@
 \alias{bgnbd.PlotTrackingInc}
 \title{BG/NBD Tracking Incremental Transactions Comparison}
 \usage{
-bgnbd.PlotTrackingInc(params, T.cal, T.tot, actual.inc.tracking.data,
-  n.periods.final = NA, hardie, xlab = "Week", ylab = "Transactions",
-  xticklab = NULL, title = "Tracking Weekly Transactions")
+bgnbd.PlotTrackingInc(
+  params,
+  T.cal,
+  T.tot,
+  actual.inc.tracking.data,
+  n.periods.final = NA,
+  hardie,
+  xlab = "Week",
+  ylab = "Transactions",
+  xticklab = NULL,
+  title = "Tracking Weekly Transactions"
+)
 }
 \arguments{
 \item{params}{BG/NBD parameters - a vector with r, alpha, a, and b, in that

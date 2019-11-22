@@ -4,8 +4,13 @@
 \alias{bgnbd.EstimateParameters}
 \title{BG/NBD Parameter Estimation}
 \usage{
-bgnbd.EstimateParameters(cal.cbs, par.start = c(1, 3, 1, 3),
-  max.param.value = 10000, method = "L-BFGS-B", hessian = FALSE)
+bgnbd.EstimateParameters(
+  cal.cbs,
+  par.start = c(1, 3, 1, 3),
+  max.param.value = 10000,
+  method = "L-BFGS-B",
+  hessian = FALSE
+)
 }
 \arguments{
 \item{cal.cbs}{calibration period CBS (customer by sufficient statistic). It

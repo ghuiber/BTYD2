@@ -4,9 +4,16 @@
 \alias{dc.ElogToCbsCbt}
 \title{Convert Event Log to CBS and CBT Matrices}
 \usage{
-dc.ElogToCbsCbt(elog, per = "week", T.cal = max(elog$date),
-  T.tot = max(elog$date), merge.same.date = TRUE,
-  cohort.birth.per = T.cal, dissipate.factor = 1, statistic = "freq")
+dc.ElogToCbsCbt(
+  elog,
+  per = "week",
+  T.cal = max(elog$date),
+  T.tot = max(elog$date),
+  merge.same.date = TRUE,
+  cohort.birth.per = T.cal,
+  dissipate.factor = 1,
+  statistic = "freq"
+)
 }
 \arguments{
 \item{elog}{event log, which is a data frame with columns for customer ID
@@ -41,9 +48,9 @@ eliminated, and if 10 is provided, 9/10 of the event log is eliminated.}
 column in elog)}
 }
 \value{
-A list of items: - \code{$cal} list with CBS and CBT from the calibration
-period - \code{$holdout} list with CBS and CBT from holdout period -
-\code{$cust.data} data frame with each customer's first and last transaction
+A list of items: - \verb{$cal} list with CBS and CBT from the calibration
+period - \verb{$holdout} list with CBS and CBT from holdout period -
+\verb{$cust.data} data frame with each customer's first and last transaction
 details
 }
 \description{

@@ -4,10 +4,14 @@
 \alias{spend.plot.average.transaction.value}
 \title{Plot Actual vs. Expected Average Transaction Value}
 \usage{
-spend.plot.average.transaction.value(params, m.x.vector, x.vector,
+spend.plot.average.transaction.value(
+  params,
+  m.x.vector,
+  x.vector,
   xlab = "Average Transaction Value",
   ylab = "Marginal Distribution of Average Transaction Value",
-  title = "Actual vs. Expected Average Transaction Value Across Customers")
+  title = "Actual vs. Expected Average Transaction Value Across Customers"
+)
 }
 \arguments{
 \item{params}{a vector of gamma-gamma parameters: p, q, and gamma, in that

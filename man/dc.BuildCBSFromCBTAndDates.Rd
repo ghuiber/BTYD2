@@ -4,8 +4,7 @@
 \alias{dc.BuildCBSFromCBTAndDates}
 \title{Build CBS matrix from CBT matrix}
 \usage{
-dc.BuildCBSFromCBTAndDates(cbt, dates, per,
-  cbt.is.during.cal.period = TRUE)
+dc.BuildCBSFromCBTAndDates(cbt, dates, per, cbt.is.during.cal.period = TRUE)
 }
 \arguments{
 \item{cbt}{customer-by-time matrix. This is a matrix consisting of a row per
