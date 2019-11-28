@@ -22,7 +22,7 @@ library(hypergeo)
 #' @return The total log-likelihood of the provided data in rf.matrix.
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/)
 #' @examples
 #' data(donationsSummary)
@@ -81,7 +81,7 @@ bgbb.rf.matrix.LL <- function(params,
 #'   t.x, or n.cal).
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/)
 #' @examples
 #' params <- c(1.20, 0.75, 0.66, 2.78)
@@ -261,7 +261,7 @@ bgbb.EstimateParameters <- function(rf.matrix,
 #' @seealso [`bgbb.pmf.General`]
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/)
 #' @examples 
 #' params <- c(1.20, 0.75, 0.66, 2.78)
@@ -323,7 +323,7 @@ bgbb.pmf <- function(params,
 #' @seealso [`bgbb.pmf`]
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/)
 #' @examples 
 #' params <- c(1.20, 0.75, 0.66, 2.78)
@@ -408,7 +408,7 @@ bgbb.pmf.General <- function(params,
 #' @return Mean of the BG/BB probability mass function.
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/)
 #' @examples 
 #' params <- c(1.20, 0.75, 0.66, 2.78)
@@ -466,7 +466,7 @@ bgbb.Expectation <- function(params,
 #'   matching each element of the longest input vector).
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/)
 #' @examples
 #' params <- c(1.20, 0.75, 0.66, 2.78)
@@ -538,7 +538,7 @@ bgbb.PAlive <- function(params,
 #' @return The present value of the expected future transaction stream for a particular customer.
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/) 
 #' See equation 14.
 #' @examples 
@@ -606,7 +606,7 @@ bgbb.DERT <- function(params,
 #' @seealso [`bgbb.DERT`]
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/) 
 #' See equation 14.
 #' @examples 
@@ -666,7 +666,7 @@ bgbb.rf.matrix.DERT <- function(params,
 #'   conditional on their behavior during the calibration period.
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/) 
 #' @examples  
 #' params <- c(1.20, 0.75, 0.66, 2.78)
@@ -754,7 +754,7 @@ bgbb.ConditionalExpectedTransactions <- function(params,
 #'   actual vs. expected.
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/) 
 #' @examples 
 #' data(donationsSummary)
@@ -872,7 +872,7 @@ bgbb.PlotFrequencyInCalibration <- function(params,
 #' @return Holdout period repeat transaction frequency comparison matrix (actual vs. expected).
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/) 
 #' @examples 
 #' data(donationsSummary)
@@ -995,7 +995,7 @@ bgbb.PlotFrequencyInHoldout <- function(params,
 #' @return Matrix containing actual and expected cumulative repeat transactions.
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/) 
 #' @examples 
 #' data(donationsSummary)
@@ -1104,7 +1104,7 @@ bgbb.PlotTrackingCum <- function(params,
 #' @return Matrix containing actual and expected incremental repeat transactions.
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/) 
 #' @examples 
 #' data(donationsSummary)
@@ -1189,6 +1189,49 @@ bgbb.PlotTrackingInc <- function(params,
     return(pur.comparison)
 }
 
+#' BG/BB Plot Frequency vs Conditional Expected Frequency
+#'
+#' Plots the actual and conditional expected number of transactions made by
+#' customers in the holdout period, binned according to calibration period
+#' frequencies. Also returns a matrix with this comparison and the number of
+#' customers in each bin.
+#'
+#' @inheritParams bgbb.PlotTrackingCum
+#' @param n.star number of transaction opportunities in the holdout period.
+#' @param x.star a vector containing the number of transactions made in the
+#'   holdout period by the groups of customers with the same recency and
+#'   frequency in the calibration period. It must be in the same order as the
+#'   rf.matrix.
+#' @param trunc optional integer used to truncate the plot. In the plot, all
+#'   calibration period frequencies above the truncation number will be removed.
+#'   If the truncation number is greater than the maximum frequency, R will warn
+#'   you and change it to the maximum frequency.
+#' @return Holdout period transaction frequency comparison matrix (actual vs.
+#'   expected), binned by calibration period frequency.
+#' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
+#'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
+#'   [Web.](http://www.brucehardie.com/papers/020/)
+#' @examples
+#' data(donationsSummary)
+#'
+#' rf.matrix <- donationsSummary$rf.matrix
+#' # donationsSummary$rf.matrix already has appropriate column names
+#'
+#' # starting-point parameters
+#' startingparams <- c(1, 1, 0.5, 3)
+#' # estimated parameters
+#' est.params <- bgbb.EstimateParameters(rf.matrix, startingparams)
+#'
+#' # get the holdout period transactions
+#' x.star <- donationsSummary$x.star
+#'
+#' # number of transaction opportunities in the holdout period
+#' n.star <- 5
+#'
+#' # Plot holdout period transactions
+#' bgbb.PlotFreqVsConditionalExpectedFrequency(est.params, n.star, rf.matrix, x.star, trunc=6)
+#' @md
 bgbb.PlotFreqVsConditionalExpectedFrequency <- function(params, 
                                                         n.star, 
                                                         rf.matrix, 
@@ -1287,6 +1330,40 @@ bgbb.PlotFreqVsConditionalExpectedFrequency <- function(params,
     return(comparison)
 }
 
+#' BG/BB Plot Recency vs Conditional Expected Frequency
+#'
+#' Plots the actual and conditional expected number of transactions made by
+#' customers in the holdout period, binned according to calibration period
+#' recencies. Also returns a matrix with this comparison and the number of
+#' customers in each bin.
+#'
+#' @inheritParams bgbb.PlotFreqVsConditionalExpectedFrequency
+#' @return Holdout period transaction frequency comparison matrix (actual vs.
+#'   expected), binned by calibration period recency.
+#' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
+#'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
+#'   [Web.](http://www.brucehardie.com/papers/020/)
+#' @examples
+#' data(donationsSummary)
+#'
+#' rf.matrix <- donationsSummary$rf.matrix
+#' # donationsSummary$rf.matrix already has appropriate column names
+#'
+#' # starting-point parameters
+#' startingparams <- c(1, 1, 0.5, 3)
+#' # estimated parameters
+#' est.params <- bgbb.EstimateParameters(rf.matrix, startingparams)
+#'
+#' # get the holdout period transactions
+#' x.star <- donationsSummary$x.star
+#'
+#' # number of transaction opportunities in the holdout period
+#' n.star <- 5
+#'
+#' # Compare holdout period transactions.
+#' bgbb.PlotRecVsConditionalExpectedFrequency(est.params, n.star, rf.matrix, x.star, trunc=6)
+#' @md
 bgbb.PlotRecVsConditionalExpectedFrequency <- function(params, 
                                                        n.star, 
                                                        rf.matrix, 
@@ -1386,6 +1463,33 @@ bgbb.PlotRecVsConditionalExpectedFrequency <- function(params,
     return(comparison)
 }
 
+#' BG/BB Posterior Mean (l,m)th Product Moment
+#'
+#' Computes the `(l,m)`th product moment of the joint posterior distribution of
+#' P (the Bernoulli transaction process parameter) and Theta (the geometric
+#' dropout process parameter).
+#'
+#' E((P)^l(Theta)^m | alpha, beta, gamma, delta, x, t.x, n)
+#'
+#' `x`, `t.x`, and `n.cal` may be vectors. The standard rules for vector
+#' operations apply - if they are not of the same length, shorter vectors will
+#' be recycled (start over at the first element) until they are as long as the
+#' longest vector. It is advisable to keep vectors to the same length and to use
+#' single values for parameters that are to be the same for all calculations. If
+#' one of these parameters has a length greater than one, the output will be
+#' also be a vector.
+#' 
+#' @inheritParams bgbb.LL
+#' @param l moment degree of P
+#' @param m moment degree of Theta
+#' @return The expected posterior `(l,m)`th product moment.
+#' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
+#'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
+#'   [Web.](http://www.brucehardie.com/papers/020/)
+#'   
+#' See equation 17.
+#' @md
 bgbb.PosteriorMeanLmProductMoment <- function(params, 
                                               l, 
                                               m, 
@@ -1432,6 +1536,43 @@ bgbb.PosteriorMeanLmProductMoment <- function(params,
     return(mean)
 }
 
+#' BG/BB Posterior Mean Transaction Rate
+#'
+#' Computes the mean value of the marginal posterior value of P, the Bernoulli
+#' transaction process parameter.
+#'
+#' E(P | alpha, beta, gamma, delta, x, t.x, n). This is calculated by setting `l
+#' = 1` and `m = 0` in [`bgbb.PosteriorMeanLmProductMoment`].
+#'
+#' `x`, `t.x`, and `n.cal` may be vectors. The standard rules for vector
+#' operations apply - if they are not of the same length, shorter vectors will
+#' be recycled (start over at the first element) until they are as long as the
+#' longest vector. It is advisable to keep vectors to the same length and to use
+#' single values for parameters that are to be the same for all calculations. If
+#' one of these parameters has a length greater than one, the output will be
+#' also be a vector.
+#' 
+#' @inheritParams bgbb.LL
+#' @return The posterior mean transaction rate.
+#' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
+#'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
+#'   [Web.](http://www.brucehardie.com/papers/020/)
+#' @seealso [`bgbb.rf.matrix.PosteriorMeanTransactionRate`]  
+#' @examples  
+#' data(donationsSummary)
+#' 
+#' rf.matrix <- donationsSummary$rf.matrix
+#' # donationsSummary$rf.matrix already has appropriate column names
+#' 
+#' # starting-point parameters
+#' startingparams <- c(1, 1, 0.5, 3)
+#' # estimated parameters
+#' est.params <- bgbb.EstimateParameters(rf.matrix, startingparams)
+#' 
+#' # return the posterior mean transaction rate vector
+#' bgbb.rf.matrix.PosteriorMeanTransactionRate(est.params, rf.matrix)
+#' @md  
 bgbb.PosteriorMeanTransactionRate <- function(params, 
                                               x, 
                                               t.x, 
@@ -1458,6 +1599,34 @@ bgbb.PosteriorMeanTransactionRate <- function(params,
     return(mean.transaction.rate)
 }
 
+#' BG/BB Posterior Mean Transaction Rate using a recency-frequency matrix
+#'
+#' Computes the mean value of the marginal posterior value of P, the Bernoulli
+#' transaction process parameter.
+#'
+#' `rf.matrix` has columns x`, `t.x`, and `n.cal`. 
+#' 
+#' @inheritParams bgbb.rf.matrix.LL
+#' @return The posterior mean transaction rate.
+#' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
+#'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
+#'   [Web.](http://www.brucehardie.com/papers/020/)
+#' @seealso [`bgbb.PosteriorMeanTransactionRate`]  
+#' @examples  
+#' data(donationsSummary)
+#' 
+#' rf.matrix <- donationsSummary$rf.matrix
+#' # donationsSummary$rf.matrix already has appropriate column names
+#' 
+#' # starting-point parameters
+#' startingparams <- c(1, 1, 0.5, 3)
+#' # estimated parameters
+#' est.params <- bgbb.EstimateParameters(rf.matrix, startingparams)
+#' 
+#' # return the posterior mean transaction rate vector
+#' bgbb.rf.matrix.PosteriorMeanTransactionRate(est.params, rf.matrix)
+#' @md  
 bgbb.rf.matrix.PosteriorMeanTransactionRate <- function(params, 
                                                         rf.matrix) {
     
@@ -1475,6 +1644,35 @@ bgbb.rf.matrix.PosteriorMeanTransactionRate <- function(params,
                                              n.cal))
 }
 
+#' BG/BB Posterior Mean Dropout Rate
+#' 
+#' Computes the mean value of the marginal posterior value of Theta, the geometric dropout process parameter.
+#' 
+#' E(Theta | alpha, beta, gamma, delta, x, t.x, n). This is calculated by setting `l = 0` and `m = 1` in [`bgbb.PosteriorMeanLmProductMoment`].
+#' 
+#' `x`, `t.x`, and `n.cal` may be vectors. The standard rules for vector operations apply - if they are not of the same length, shorter vectors will be recycled (start over at the first element) until they are as long as the longest vector. It is advisable to keep vectors to the same length and to use single values for parameters that are to be the same for all calculations. If one of these parameters has a length greater than one, the output will be also be a vector.
+#' 
+#' @inheritParams bgbb.LL
+#' @return The posterior mean dropout rate.
+#' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
+#'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
+#'   [Web.](http://www.brucehardie.com/papers/020/)
+#' @seealso [`bgbb.rf.matrix.PosteriorMeanDropoutRate`]  
+#' @examples  
+#' data(donationsSummary)
+#' 
+#' rf.matrix <- donationsSummary$rf.matrix
+#' # donationsSummary$rf.matrix already has appropriate column names
+#' 
+#' # starting-point parameters
+#' startingparams <- c(1, 1, 0.5, 3)
+#' # estimated parameters
+#' est.params <- bgbb.EstimateParameters(rf.matrix, startingparams)
+#' 
+#' # return the posterior mean dropout rate vector
+#' bgbb.rf.matrix.PosteriorMeanDropoutRate(est.params, rf.matrix)
+#' @md
 bgbb.PosteriorMeanDropoutRate <- function(params, 
                                           x, 
                                           t.x, 
@@ -1501,6 +1699,35 @@ bgbb.PosteriorMeanDropoutRate <- function(params,
     return(mean.dropout.rate)
 }
 
+#' BG/BB Posterior Mean Dropout Rate using a recency-frequency matrix
+#' 
+#' Computes the mean value of the marginal posterior value of Theta, the geometric dropout process parameter.
+#' 
+#' E(Theta | alpha, beta, gamma, delta, x, t.x, n). This is calculated by setting `l = 0` and `m = 1` in [`bgbb.PosteriorMeanLmProductMoment`].
+#' 
+#' `rf.matrix` has columns x`, `t.x`, and `n.cal`. 
+#' 
+#' @inheritParams bgbb.rf.matrix.LL
+#' @return The posterior mean dropout rate.
+#' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
+#'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
+#'   [Web.](http://www.brucehardie.com/papers/020/)
+#' @seealso [`bgbb.PosteriorMeanDropoutRate`]  
+#' @examples 
+#' data(donationsSummary)
+#' 
+#' rf.matrix <- donationsSummary$rf.matrix
+#' # donationsSummary$rf.matrix already has appropriate column names
+#' 
+#' # starting-point parameters
+#' startingparams <- c(1, 1, 0.5, 3)
+#' # estimated parameters
+#' est.params <- bgbb.EstimateParameters(rf.matrix, startingparams)
+#' 
+#' # return the posterior mean dropout rate vector
+#' bgbb.rf.matrix.PosteriorMeanDropoutRate(est.params, rf.matrix)
+#' @md
 bgbb.rf.matrix.PosteriorMeanDropoutRate <- function(params, 
                                                     rf.matrix) {
     
@@ -1540,7 +1767,7 @@ bgbb.rf.matrix.PosteriorMeanDropoutRate <- function(params,
 #' @seealso [`bgbb.ConditionalExpectedTransactions`]
 #' @references  Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 #'   "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-#'   _Marketing Science 29(6)_, pp. 1086-1108. 2010. INFORMS.
+#'   _Marketing Science_ 29(6), pp. 1086-1108. 2010. INFORMS.
 #'   [Web.](http://www.brucehardie.com/papers/020/) 
 #' @examples 
 #' data(donationsSummary)
