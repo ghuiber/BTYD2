@@ -13,11 +13,11 @@ to the `pnbd` and `bgnbd` groups of functions meet your needs. But, caveat empto
 
 ## How to install
 
-The `devtools` way is the easiest: `install_github('ghuiber/BTYD2', build_vignettes = TRUE)`. 
+The `devtools` way is the easiest and it works: `install_github('ghuiber/BTYD2', build_vignettes = TRUE)`. 
 
 ## How to tinker
 
-First `git clone`. Then, install it the devtools way: `document(); build(); install(build_vignettes = TRUE)`. If you want to build your cloned source package the standard way, it's a two-step process:
+First `git clone`. Then, install it the devtools way: `document(); build(); install(build_vignettes = TRUE)`. This process, like `install_github()`, will obliterate `inst/doc`. Recover it from the source repo if you want to build your cloned source package the standard way, which is a two-step process:
 
 First, at the command line, do this:
 
@@ -26,7 +26,7 @@ R CMD build BTYD2
 R CMD check BTYD2
 ```
 
-Then, at the R console, do this:
+There may be errors, warnings, notes. Work them out. Then, at the R console, do this:
 
 ```
 install.packages("BTYD2_2.4.tar.gz", repos = NULL, type = "source")
