@@ -46,7 +46,7 @@ bgbb.pmf(params, n=6, x=0:6)
 \references{
 Fader, Peter S., Bruce G.S. Hardie, and Jen Shang.
 "Customer-Base Analysis in a Discrete-Time Noncontractual Setting."
-\emph{Marketing Science 29(6)}, pp. 1086-1108. 2010. INFORMS.
+\emph{Marketing Science} 29(6), pp. 1086-1108. 2010. INFORMS.
 \href{http://www.brucehardie.com/papers/020/}{Web.}
 }
 \seealso{
