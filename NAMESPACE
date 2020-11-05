@@ -7,6 +7,7 @@ exportPattern("^equi\\.")
 export("h2f1")
 import("Matrix")
 import("optimx")
+import("dplyr")
 importFrom("hypergeo", "hypergeo", "genhypergeo")
 importFrom("grDevices", "dev.new", "gray")
 importFrom("graphics", "abline", "axis", "barplot", "contour",

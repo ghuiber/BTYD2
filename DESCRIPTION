@@ -27,8 +27,10 @@ Collate:
     'dc.R'
     'spend.R'
 Depends:
+    R(>= 3.5),
     hypergeo, 
-    optimx
+    optimx, 
+    dplyr
 Imports:
     Matrix
 Suggests:
@@ -45,5 +47,5 @@ Author: Lukasz Dziurzynski [aut],
         Yao Zhang [ctb]
 NeedsCompilation: no
 Encoding: UTF-8
-RoxygenNote: 7.0.0
+RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)

@@ -191,25 +191,27 @@ sourcepath <- file.path(here::here(), where)
 system(paste('rm', 
              file.path(sourcepath, 
                        '.DS_Store')))
-system(paste('rm -Rf', 
+system(paste('rm', 
              file.path(sourcepath, 
                        'inst', 
-                       'doc/')))
+                       '.DS_Store')))
+system(paste('rm', 
+             file.path(sourcepath, 
+                       'inst', 
+                       'docs', 
+                       '.DS_Store')))
+system(paste('rm', 
+             file.path(sourcepath, 
+                       'vignettes', 
+                       '.DS_Store')))
+system(paste('rm -Rf', 
+             file.path(sourcepath, 'inst', 'doc')))
+
+message('')
+message('Watch for build notes, warnings here:')
 system(paste("R CMD build", where))
-# Now check the build; but first,
-# copy new vignette goods where 
-# R CMD check wants to see them:
-system(paste('cp -R', 
-             file.path(sourcepath, 
-                       'vignettes/'), 
-             file.path(sourcepath, 
-                       'inst/doc')))
-system(paste("R CMD check", where))
-# to build the reference manual directly:
-# system(paste("rm", paste(where, "pdf", sep = ".")))
-# system(paste("R CMD Rd2pdf", where))
 # install the newest version:
-remove.packages(where)
+try(remove.packages(where))
 install.packages(paste(paste(where, 
                        getPackageVersion(where), 
                        sep = '_'), 
@@ -217,9 +219,32 @@ install.packages(paste(paste(where,
                        sep = '.'), 
                  repos = NULL, 
                  type = 'source')
-# you need this to run code examples from the vignette:
+
+# to run code examples from the vignette
+# you need to unzip the csv files first:
 system(paste('gunzip', file.path(.libPaths(), where, 'data', 'discreteSimElog.csv.gz')))
 system(paste('gunzip', file.path(.libPaths(), where, 'data', 'cdnowElog.csv.gz')))
+
+# Now check the build; but first,
+# copy new vignette goods where 
+# R CMD check wants to see them:
+dir.create(file.path(sourcepath, 'inst', 'doc'))
+system(paste('rm', 
+             file.path(sourcepath, 
+                       'vignettes', 'BTYD2-walkthrough.log')))
+system(paste('cp -R',
+             file.path(sourcepath,
+                       'vignettes/'),
+             file.path(sourcepath,
+                       'inst', 'doc')))
+
+message('')
+message('Watch for check notes, warnings here:')
+system(paste("R CMD check", where))
+# to build the reference manual directly:
+# system(paste("rm", paste(where, "pdf", sep = ".")))
+# system(paste("R CMD Rd2pdf", where))
+
 # you need this to rebuild the help library, 
 # but it only works if you're in RStudio already:
 # .rs.restartR()

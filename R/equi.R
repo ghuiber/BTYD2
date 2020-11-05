@@ -26,7 +26,6 @@
 #' # Get the calibration data. Remember that
 #' # counts of households are cumulative, so 
 #' # turn them to incremental:
-#' library(tidyverse)
 #' data("ace_snackfoods")
 #' data <- ace_snackfoods$calibration %>% 
 #'   rename(x = `Number of households`) %>% 
@@ -94,7 +93,6 @@ equi.bg.LL <- function(params,
 #' # Get the calibration data. Remember that
 #' # counts of households are cumulative, so 
 #' # turn them to incremental:
-#' library(tidyverse)
 #' data("ace_snackfoods")
 #' data <- ace_snackfoods$calibration %>% 
 #'   rename(x = `Number of households`) %>% 
